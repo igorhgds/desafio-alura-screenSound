@@ -25,7 +25,7 @@ public class Artista {
     @Enumerated(EnumType.STRING)
     private TipoArtista type;
 
-    @OneToMany
+    @OneToMany(mappedBy = "artista")
     private List<Musicas> musicas = new ArrayList<>();
 
     public int getId() {
