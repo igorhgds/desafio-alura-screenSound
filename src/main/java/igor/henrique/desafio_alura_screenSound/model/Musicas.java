@@ -50,7 +50,6 @@ public class Musicas {
 
     @Override
     public String toString() {
-        return  "titulo = " + title + '\'' +
-                ", artista = " + artist;
+        return  "titulo = " + title;
     }
 }
