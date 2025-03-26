@@ -14,7 +14,7 @@ public class DesafioAluraScreenSoundApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println("Desafio Alura Screen Sound Application");
+		System.out.println("***Desafio Alura Screen Sound Application***");
 		Principal principal = new Principal();
 		principal.exibeMenu();
 	}

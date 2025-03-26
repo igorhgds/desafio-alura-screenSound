@@ -5,10 +5,10 @@ import java.util.Scanner;
 public class Principal {
 
     public void exibeMenu() {
-        Scanner leitura = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
         
-        var opcao = -1;
-        while (opcao!= 0) {
+        var option = -1;
+        while (option!= 0) {
             var menu = """
                     *** Screen Sound Músicas ***                    
                                         
@@ -22,24 +22,24 @@ public class Principal {
                     """;
 
             System.out.println(menu);
-            opcao = leitura.nextInt();
-            leitura.nextLine();
+            option = scan.nextInt();
+            scan.nextLine();
 
-            switch (opcao) {
+            switch (option) {
                 case 1:
-                    cadastrarArtistas();
+                    registerArtist();
                     break;
                 case 2:
-                    cadastrarMusicas();
+                    registerMusic();
                     break;
                 case 3:
-                    listarMusicas();
+                    listSongs();
                     break;
                 case 4:
-                    buscarMusicasPorArtista();
+                    searchMusicByArtist();
                     break;
                 case 5:
-                    pesquisarDadosDoArtista();
+                    searchArtistData();
                     break;
                 case 0:
                     System.out.println("Encerrando a aplicação!");
@@ -50,18 +50,18 @@ public class Principal {
         }
     }
 
-    private void cadastrarArtistas() {
+    private void registerArtist() {
     }
 
-    private void cadastrarMusicas() {
+    private void registerMusic() {
     }
 
-    private void listarMusicas() {
+    private void listSongs() {
     }
 
-    private void buscarMusicasPorArtista() {
+    private void searchMusicByArtist() {
     }
 
-    private void pesquisarDadosDoArtista() {
+    private void searchArtistData() {
     }
 }
