@@ -18,6 +18,12 @@ public class Musicas {
     @ManyToOne
     private Artista artist;
 
+    public Musicas() {}
+
+    public Musicas(String title) {
+        this.title = title;
+    }
+
     public long getId() {
         return id;
     }

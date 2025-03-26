@@ -1,9 +1,11 @@
 package igor.henrique.desafio_alura_screenSound.principal;
 
 import igor.henrique.desafio_alura_screenSound.model.Artista;
+import igor.henrique.desafio_alura_screenSound.model.Musicas;
 import igor.henrique.desafio_alura_screenSound.model.TipoArtista;
 import igor.henrique.desafio_alura_screenSound.repository.SoundRepository;
 
+import java.util.Optional;
 import java.util.Scanner;
 
 public class Principal {
@@ -66,8 +68,8 @@ public class Principal {
             System.out.println("Informe o nome do artista: ");
             var name = scan.nextLine();
             System.out.println("Informe o tipo do artista: (solo, dupla ou banda)");
-            var tipo = scan.nextLine();
-            TipoArtista tipoArtista = TipoArtista.valueOf(tipo.toUpperCase());
+            var type = scan.nextLine();
+            TipoArtista tipoArtista = TipoArtista.valueOf(type.toUpperCase());
             Artista artista = new Artista(name, tipoArtista);
             repository.save(artista);
             System.out.println("Cadastrar novo artista? (s/n)");
@@ -76,6 +78,18 @@ public class Principal {
     }
 
     private void registerMusic() {
+        System.out.println("Cadastrar música de qual artista? ");
+        var name = scan.nextLine();
+        Optional<Artista> artista = repository.findByNameContainingIgnoreCase(name);
+        if (artista.isPresent()) {
+            System.out.println("Informe o titulo da música: ");
+            var title = scan.nextLine();
+            Musicas musica = new Musicas(title);
+            musica.setArtist(artista.get());
+            repository.save(artista.get());
+        } else {
+            System.out.println("Artista não encontrado!");
+        }
     }
 
     private void listSongs() {
