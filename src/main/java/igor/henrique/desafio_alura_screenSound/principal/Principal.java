@@ -60,13 +60,19 @@ public class Principal {
     }
 
     private void registerArtist() {
-        System.out.println("Informe o nome do artista: ");
-        var name = scan.nextLine();
-        System.out.println("Informe o tipo do artista: (solo, dupla ou banda)");
-        var tipo = scan.nextLine();
-        TipoArtista tipoArtista = TipoArtista.valueOf(tipo.toUpperCase());
-        Artista artista = new Artista(name, tipoArtista);
-        repository.save(artista);
+        var novoArtista = "s";
+
+        while(novoArtista.equalsIgnoreCase( "s")) {
+            System.out.println("Informe o nome do artista: ");
+            var name = scan.nextLine();
+            System.out.println("Informe o tipo do artista: (solo, dupla ou banda)");
+            var tipo = scan.nextLine();
+            TipoArtista tipoArtista = TipoArtista.valueOf(tipo.toUpperCase());
+            Artista artista = new Artista(name, tipoArtista);
+            repository.save(artista);
+            System.out.println("Cadastrar novo artista? (s/n)");
+            novoArtista = scan.nextLine();
+        }
     }
 
     private void registerMusic() {
