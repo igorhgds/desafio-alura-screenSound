@@ -111,6 +111,7 @@ public class Principal {
     private void searchArtistData() {
         System.out.println("Digite o nome do artista: ");
         var artista = scan.nextLine();
-        ConsultaChatGPT.buscarInformacao(artista);
+        var resposta = ConsultaChatGPT.buscarInformacao(artista);
+        System.out.println(resposta.trim());
     }
 }

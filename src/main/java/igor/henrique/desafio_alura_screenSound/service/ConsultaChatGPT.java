@@ -11,7 +11,7 @@ public class ConsultaChatGPT {
 
         CompletionRequest requisicao = CompletionRequest.builder()
                 .model("gpt-3.5-turbo-instruct")
-                .prompt("Me de detalhes sobre o(a) " + artista)
+                .prompt("Me de detalhes sobre o artista " + artista)
                 .maxTokens(500)
                 .temperature(0.7)
                 .build();
