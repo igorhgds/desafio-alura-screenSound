@@ -8,8 +8,7 @@ public class Principal {
         Scanner leitura = new Scanner(System.in);
         
         var opcao = -1;
-
-        while (opcao!= 9) {
+        while (opcao!= 0) {
             var menu = """
                     *** Screen Sound Músicas ***                    
                                         
@@ -19,7 +18,7 @@ public class Principal {
                     4- Buscar músicas por artistas
                     5- Pesquisar dados sobre um artista
                                     
-                    9 - Sair
+                    0 - Sair
                     """;
 
             System.out.println(menu);
@@ -42,7 +41,7 @@ public class Principal {
                 case 5:
                     pesquisarDadosDoArtista();
                     break;
-                case 9:
+                case 0:
                     System.out.println("Encerrando a aplicação!");
                     break;
                 default:
