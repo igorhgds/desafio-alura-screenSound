@@ -50,6 +50,7 @@ public class Musicas {
 
     @Override
     public String toString() {
-        return  "titulo = " + title;
+        return  "titulo = " + title +
+                ", artist = " + artist.getName();
     }
 }

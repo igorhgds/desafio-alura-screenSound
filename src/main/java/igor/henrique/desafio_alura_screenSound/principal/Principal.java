@@ -4,6 +4,7 @@ import igor.henrique.desafio_alura_screenSound.model.Artista;
 import igor.henrique.desafio_alura_screenSound.model.Musicas;
 import igor.henrique.desafio_alura_screenSound.model.TipoArtista;
 import igor.henrique.desafio_alura_screenSound.repository.SoundRepository;
+import igor.henrique.desafio_alura_screenSound.service.ConsultaChatGPT;
 
 import java.util.List;
 import java.util.Optional;
@@ -97,12 +98,19 @@ public class Principal {
 
     private void listSongs() {
         List<Artista> artistas = repository.findAll();
-        artistas.forEach(System.out::println);
+        artistas.forEach(a -> a.getMusicas().forEach(System.out::println));
     }
 
     private void searchMusicByArtist() {
+        System.out.println("Buscar músicas de qual artista? ");
+        var name = scan.nextLine();
+        List<Musicas> musicas = repository.searchMusicByArtist(name);
+        musicas.forEach(System.out::println);
     }
 
     private void searchArtistData() {
+        System.out.println("Digite o nome do artista: ");
+        var artista = scan.nextLine();
+        ConsultaChatGPT.buscarInformacao(artista);
     }
 }
