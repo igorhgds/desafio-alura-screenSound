@@ -1,12 +1,21 @@
 package igor.henrique.desafio_alura_screenSound.principal;
 
+import igor.henrique.desafio_alura_screenSound.model.Artista;
+import igor.henrique.desafio_alura_screenSound.model.TipoArtista;
+import igor.henrique.desafio_alura_screenSound.repository.SoundRepository;
+
 import java.util.Scanner;
 
 public class Principal {
+    private final SoundRepository repository;
+    Scanner scan = new Scanner(System.in);
+
+    public Principal(SoundRepository repository) {
+        this.repository = repository;
+    }
 
     public void exibeMenu() {
-        Scanner scan = new Scanner(System.in);
-        
+
         var option = -1;
         while (option!= 0) {
             var menu = """
@@ -51,6 +60,13 @@ public class Principal {
     }
 
     private void registerArtist() {
+        System.out.println("Informe o nome do artista: ");
+        var name = scan.nextLine();
+        System.out.println("Informe o tipo do artista: (solo, dupla ou banda)");
+        var tipo = scan.nextLine();
+        TipoArtista tipoArtista = TipoArtista.valueOf(tipo.toUpperCase());
+        Artista artista = new Artista(name, tipoArtista);
+        repository.save(artista);
     }
 
     private void registerMusic() {

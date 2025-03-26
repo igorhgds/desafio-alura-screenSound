@@ -14,9 +14,9 @@ public class Musicas {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String titulo;
+    private String title;
     @ManyToOne
-    private Artista artista;
+    private Artista artist;
 
     public long getId() {
         return id;
@@ -26,25 +26,25 @@ public class Musicas {
         this.id = id;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public Artista getArtista() {
-        return artista;
+    public Artista getArtist() {
+        return artist;
     }
 
-    public void setArtista(Artista artista) {
-        this.artista = artista;
+    public void setArtist(Artista artist) {
+        this.artist = artist;
     }
 
     @Override
     public String toString() {
-        return  "titulo = " + titulo + '\'' +
-                ", artista = " + artista;
+        return  "titulo = " + title + '\'' +
+                ", artista = " + artist;
     }
 }

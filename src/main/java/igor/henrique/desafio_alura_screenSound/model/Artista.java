@@ -19,16 +19,24 @@ public class Artista {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     @Column(unique = true)
     private String name;
     @Enumerated(EnumType.STRING)
     private TipoArtista type;
 
-    @OneToMany(mappedBy = "artista")
+    @OneToMany(mappedBy = "artist")
     private List<Musicas> musicas = new ArrayList<>();
 
-    public int getId() {
+    public Artista() {}
+
+    public Artista(String name, TipoArtista tipoArtista) {
+        this.name = name;
+        this.type = tipoArtista;
+    }
+
+
+    public long getId() {
         return id;
     }
 
