@@ -5,6 +5,7 @@ import igor.henrique.desafio_alura_screenSound.model.Musicas;
 import igor.henrique.desafio_alura_screenSound.model.TipoArtista;
 import igor.henrique.desafio_alura_screenSound.repository.SoundRepository;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -86,13 +87,17 @@ public class Principal {
             var title = scan.nextLine();
             Musicas musica = new Musicas(title);
             musica.setArtist(artista.get());
+            artista.get().getMusicas().add(musica);
             repository.save(artista.get());
+            System.out.println("Musica cadastrada!");
         } else {
             System.out.println("Artista não encontrado!");
         }
     }
 
     private void listSongs() {
+        List<Artista> artistas = repository.findAll();
+        artistas.forEach(System.out::println);
     }
 
     private void searchMusicByArtist() {
