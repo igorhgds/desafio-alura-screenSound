@@ -69,8 +69,7 @@ public class Principal {
         while(novoArtista.equalsIgnoreCase( "s")) {
             System.out.println("Informe o nome do artista: ");
             var name = scan.nextLine();
-            System.out.println("Informe o tipo do artista: (solo, dupla ou banda)");
-            var type = scan.nextLine();
+            var type = ConsultaChatGPT.dadosArtista(name);
             TipoArtista tipoArtista = TipoArtista.valueOf(type.toUpperCase());
             Artista artista = new Artista(name, tipoArtista);
             repository.save(artista);
@@ -110,8 +109,8 @@ public class Principal {
 
     private void searchArtistData() {
         System.out.println("Digite o nome do artista: ");
-        var artista = scan.nextLine();
-        var resposta = ConsultaChatGPT.buscarInformacao(artista);
+        var texto = scan.nextLine();
+        var resposta = ConsultaChatGPT.buscarInformacao(texto);
         System.out.println(resposta.trim());
     }
 }
