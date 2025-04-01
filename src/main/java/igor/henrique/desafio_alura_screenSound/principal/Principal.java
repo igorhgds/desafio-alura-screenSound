@@ -70,7 +70,7 @@ public class Principal {
             System.out.println("Informe o nome do artista: ");
             var name = scan.nextLine();
             var type = ConsultaChatGPT.dadosArtista(name);
-            TipoArtista tipoArtista = TipoArtista.valueOf(type.toUpperCase());
+            TipoArtista tipoArtista = TipoArtista.valueOf(type.toUpperCase().trim());
             Artista artista = new Artista(name, tipoArtista);
             repository.save(artista);
             System.out.println("Cadastrar novo artista? (s/n)");
